@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 6 - Conditional Statements</title>
+</head>
+<body>
+
+<h1>Introduction to Web Programming</h1>
+<h2>Lab 6: JavaScript Conditional Statements</h2>
+
+<hr>
+
+<h3>Question 1: Positive, Negative or Zero</h3>
+
+<p id="result1"></p>
+
+<script>
+let number = -8;
+
+if (number > 0) {
+    document.getElementById("result1").innerHTML = "Positive";
+}
+else if (number < 0) {
+    document.getElementById("result1").innerHTML = "Negative";
+}
+else {
+    document.getElementById("result1").innerHTML = "Zero";
+}
+</script>
+
+<hr>
+
+<h3>Question 2: Pass or Fail</h3>
+
+<p id="result2"></p>
+
+<script>
+let mark = 75;
+
+if (mark >= 50) {
+    document.getElementById("result2").innerHTML = "PASS";
+}
+else {
+    document.getElementById("result2").innerHTML = "FAIL";
+}
+</script>
+
+<hr>
+
+<h3>Question 3: Student Grade</h3>
+
+<p id="result3"></p>
+
+<script>
+let studentMark = 85;
+let grade;
+
+if (studentMark >= 80) {
+    grade = "A";
+}
+else if (studentMark >= 70) {
+    grade = "B";
+}
+else if (studentMark >= 60) {
+    grade = "C";
+}
+else if (studentMark >= 50) {
+    grade = "D";
+}
+else {
+    grade = "F";
+}
+
+document.getElementById("result3").innerHTML =
+"Student Grade: " + grade;
+</script>
+
+<hr>
+
+<h3>Question 4: Bookstore Discount</h3>
+
+<p id="result4"></p>
+
+<script>
+let purchase = 250;
+let discount;
+
+if (purchase >= 200) {
+    discount = 20;
+}
+else if (purchase >= 100) {
+    discount = 10;
+}
+else {
+    discount = 0;
+}
+
+let discountAmount = purchase * discount / 100;
+let finalPayment = purchase - discountAmount;
+
+document.getElementById("result4").innerHTML =
+"Purchase Amount: RM" + purchase +
+"<br>Discount: " + discount + "%" +
+"<br>Discount Amount: RM" + discountAmount +
+"<br>Final Payment: RM" + finalPayment;
+</script>
+
+<hr>
+
+<h3>Question 5: Student Grade Checker</h3>
+
+<label>Student Name:</label>
+<input type="text" id="studentName">
+
+<br><br>
+
+<label>Examination Mark:</label>
+<input type="number" id="examMark">
+
+<br><br>
+
+<button onclick="checkGrade()">Check Grade</button>
+
+<p id="result5"></p>
+
+<script>
+function checkGrade() {
+
+    let name = document.getElementById("studentName").value;
+    let markInput = document.getElementById("examMark").value;
+    let mark = Number(markInput);
+    let grade;
+
+    if (name.trim() === "" || markInput === "") {
+        document.getElementById("result5").innerHTML =
+        "Please enter your name and mark.";
+    }
+    else if (mark < 0 || mark > 100) {
+        document.getElementById("result5").innerHTML =
+        "Invalid mark! Please enter a mark between 0 and 100.";
+    }
+    else if (mark >= 80) {
+        grade = "A";
+    }
+    else if (mark >= 70) {
+        grade = "B";
+    }
+    else if (mark >= 60) {
+        grade = "C";
+    }
+    else if (mark >= 50) {
+        grade = "D";
+    }
+    else {
+        grade = "F";
+    }
+
+    if (grade !== undefined) {
+        document.getElementById("result5").innerHTML =
+        "Student Name: " + name +
+        "<br>Examination Mark: " + mark +
+        "<br>Grade: " + grade;
+    }
+}
+</script>
+
+</body>
+</html>
